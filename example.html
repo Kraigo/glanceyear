@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="jquery.glanceyear.js"></script>
+	<link rel="stylesheet" href="glanceyear.css">
+	<style>
+
+	</style>
+	<title>Glance Year</title>
+</head>
+
+<body>
+	<div class="glanceyear-container">
+		<h1 class="glanceyear-header">Glance Year
+			<span class="glanceyear-quantity"></span>
+		</h1>
+		<div class="glanceyear-content" id="js-glanceyear">
+		</div>
+
+		<div class="glanceyear-summary">
+			<div class="glanceyear-legend">
+				Less&nbsp;
+				<span style="background-color: #eee"></span>
+				<span style="background-color: #c3dbda"></span>
+				<span style="background-color: #5caeaa"></span>
+				<span style="background-color: #277672"></span>
+				&nbsp;More
+			</div>
+			Calendar with map data entered
+		</div>
+
+
+	</div>
+	<script>
+	$(function() {
+			var massive = [
+				{date: '2014-8-3', value:'1'},
+				{date: '2014-8-4', value:'2'},
+				{date: '2014-9-3', value:'3'},
+				{date: '2014-10-14', value:'2'},
+				{date: '2014-10-13', value:'8'},
+				{date: '2014-7-3', value:'1'},
+				{date: '2014-7-4', value:'2'},
+				{date: '2014-7-7', value:'3'},
+				{date: '2014-7-14', value:'2'},
+				{date: '2014-6-3', value:'1'},
+				{date: '2014-6-4', value:'2'},
+				{date: '2014-6-5', value:'3'},
+				{date: '2014-6-14', value:'2'}
+			];
+			$('#js-glanceyear').glanceyear(
+				massive,
+				{targetQuantity: '.glanceyear-quantity'}
+			);
+
+	});
+	</script>
+</body>
+</html>
