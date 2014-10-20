@@ -6,7 +6,7 @@
 	<script src="jquery.glanceyear.js"></script>
 	<link rel="stylesheet" href="glanceyear.css">
 	<style>
-
+		#debug {color: #000; font-weight: bold;}
 	</style>
 	<title>Glance Year</title>
 </head>
@@ -28,7 +28,8 @@
 				<span style="background-color: #277672"></span>
 				&nbsp;More
 			</div>
-			Calendar with map data entered
+			Calendar with map data entered <br>
+			<span id="debug"></span>
 		</div>
 
 
@@ -50,9 +51,15 @@
 				{date: '2014-6-5', value:'3'},
 				{date: '2014-6-14', value:'2'}
 			];
+		
 			$('#js-glanceyear').glanceyear(
 				massive,
-				{targetQuantity: '.glanceyear-quantity'}
+				{
+					eventClick: function(e) { $('#debug').html('Date: '+ e.date + ', Count: ' + e.count); },
+					months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+					weeks: ['M','T','W','T','F','S', 'S'],
+				}
+
 			);
 
 	});

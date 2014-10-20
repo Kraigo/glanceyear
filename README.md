@@ -3,10 +3,15 @@ glanceyear
 
 JQuery data visualization / Glance Year
 
-*Need JQuery*
+*Need [JQuery](http://jquery.com/download/)*
 
 [Check live demo](http://codepen.io/Kraigo/full/Hpuyw)
 
+##### Version 0.2
+- rebuild mouseover and mouseleave event and now work faster;
+- new event 'eventClick'.
+
+##### How to Use
 ![alt tag](https://raw.github.com/kraigo/glanceyear/master/images/glanceyear.png)
 ```javascript
 var massive = [
@@ -26,5 +31,10 @@ var massive = [
 ];
 ```
 ```javascript
-$('div#js-glanceyear').glanceyear(massive);
+$('div#js-glanceyear').glanceyear(massive,
+	{
+		eventClick: function(e) { $('#debug').html('Date: '+ e.date + ', Count: ' + e.count); },
+		months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+		weeks: ['M','T','W','T','F','S', 'S'],
+	});
 ```
