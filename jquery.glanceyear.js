@@ -8,10 +8,11 @@
 			months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
 			weeks: ['M','T','W','T','F','S', 'S'],
 			targetQuantity: '.glanceyear-quantity',
-			tagId: 'glanceyear-svgTag'
+			tagId: 'glanceyear-svgTag',
+			showToday: false
 		}, options );
 
-		var svgElement = createElementSvg('svg', {'width': 53*12+15, 'height': 7*12+15 } );
+		var svgElement = createElementSvg('svg', {'width': 54*12+15, 'height': 7*12+15 } );
 
 		var gElementContainer = createElementSvg('g', {'transform': 'translate(15, 15)'} );
 
@@ -27,7 +28,7 @@
 
 
 		//Weeks
-		for (var i=0; i<53; i++) {
+		for (var i=0; i<54; i++) {
 			var gElement = createElementSvg('g', {'transform': 'translate('+(12*i)+',0)'} );   
 			var firstDate = new Date();
 			firstDate.setDate(today.getDate() - dayCount-1);
@@ -37,7 +38,7 @@
 				var rectDate = new Date();
 				rectDate.setDate(today.getDate() - dayCount);
 
-				if ( rectDate.getMonth() != monthCount && i < 51 && j > 3 ) {
+				if ( rectDate.getMonth() != monthCount && i < 52 && j > 3 ) {
 					//new Month
 					var offset = 12;
 					if (rectDate.getDate()> 7) offset = 0;
@@ -48,7 +49,7 @@
 				}
 
 				dayCount--;
-				if (dayCount>=0) {
+				if (dayCount>=0 || (settings.showToday && dayCount>=-1)) {
 					// Day-obj factory
 
 					var rectElement = createElementSvg('rect', {
@@ -138,7 +139,7 @@
 		function fillData(massive) {
 			var scoreCount = 0;
 			for (var m in massive) {
-				$('rect.day[data-date="' + massive[m].date + '"]').attr('data-count', massive[m].value);
+				$_this.find('rect.day[data-date="' + massive[m].date + '"]').attr('data-count', massive[m].value);
 				scoreCount += parseInt(massive[m].value);
 			}
 			$(settings.targetQuantity).text(massive.length + ' days, ' + scoreCount + ' scores');

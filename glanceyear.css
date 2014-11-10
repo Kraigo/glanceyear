@@ -3,7 +3,7 @@ body { font-family: Arial, serif; }
 	border: 1px solid #D8D8D8;
 	border-radius: 5px;
 	margin: 0 auto;
-	width: 671px;
+	max-width: 683px;
 }
 .glanceyear-header {
 	position: relative;

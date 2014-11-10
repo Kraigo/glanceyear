@@ -7,6 +7,10 @@ JQuery data visualization / Glance Year
 
 [Check live demo](http://codepen.io/Kraigo/full/Hpuyw)
 
+##### Version 0.3
+- Every instance fill your own data;
+- New parameter "showToday".
+
 ##### Version 0.2
 - rebuild mouseover and mouseleave event and now work faster;
 - new event 'eventClick'.
@@ -30,11 +34,24 @@ var massive = [
 	{date: '2014-6-14', value:'2'}
 ];
 ```
+
+##### Simple initialization plugin
+```javascript
+$('div#js-glanceyear').glanceyear(massive);
+```
+
+##### Initialization the plugin with additional parameters
 ```javascript
 $('div#js-glanceyear').glanceyear(massive,
 	{
 		eventClick: function(e) { $('#debug').html('Date: '+ e.date + ', Count: ' + e.count); },
 		months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
 		weeks: ['M','T','W','T','F','S', 'S'],
+		showToday: false
 	});
 ```
+
+**eventClick** - Event, after click on day [Function];
+**month** - name of month [Array with string];
+**weeks** - name of weeks [Array with string];
+**showToday** - display present day or not [Boolean].

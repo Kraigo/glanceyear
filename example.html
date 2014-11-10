@@ -31,9 +31,8 @@
 			Calendar with map data entered <br>
 			<span id="debug"></span>
 		</div>
-
-
 	</div>
+	
 	<script>
 	$(function() {
 			var massive = [
@@ -58,6 +57,7 @@
 					eventClick: function(e) { $('#debug').html('Date: '+ e.date + ', Count: ' + e.count); },
 					months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
 					weeks: ['M','T','W','T','F','S', 'S'],
+					showToday: false
 				}
 
 			);
