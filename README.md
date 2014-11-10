@@ -51,7 +51,7 @@ $('div#js-glanceyear').glanceyear(massive,
 	});
 ```
 
-**eventClick** - Event, after click on day [Function];
-**month** - name of month [Array with string];
-**weeks** - name of weeks [Array with string];
-**showToday** - display present day or not [Boolean].
+- **eventClick** - Event, after click on day [Function];
+- **month** - name of month [Array with string];
+- **weeks** - name of weeks [Array with string];
+- **showToday** - display present day or not [Boolean].
