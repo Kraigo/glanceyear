@@ -7,16 +7,20 @@ JQuery data visualization / Glance Year
 
 [Check live demo](http://codepen.io/Kraigo/full/Hpuyw)
 
+![alt tag](https://raw.github.com/kraigo/glanceyear/master/images/glanceyear.png)
+
 ##### Version 0.3
 - Every instance fill your own data;
-- New parameter "showToday".
+- New parameter "showToday";
+- Fix bug with 54 weeks;
+- Added minified script.
+
 
 ##### Version 0.2
 - rebuild mouseover and mouseleave event and now work faster;
 - new event 'eventClick'.
 
 ##### How to Use
-![alt tag](https://raw.github.com/kraigo/glanceyear/master/images/glanceyear.png)
 ```javascript
 var massive = [
 	{date: '2014-8-3', value:'1'},
