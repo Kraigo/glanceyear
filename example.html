@@ -50,13 +50,13 @@
 				{date: '2014-6-5', value:'3'},
 				{date: '2014-6-14', value:'2'}
 			];
-		
-			$('#js-glanceyear').glanceyear(
+
+			$('#js-glanceyear').empty().glanceyear(
 				massive,
 				{
-					eventClick: function(e) { $('#debug').html('Date: '+ e.date + ', Count: ' + e.count); },
-					months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-					weeks: ['M','T','W','T','F','S', 'S'],
+					eventClick: function(e) {
+						$('#debug').html('Date: '+ e.date + ', Count: ' + e.count);
+					},
 					showToday: false
 				}
 

@@ -9,7 +9,8 @@
 			weeks: ['M','T','W','T','F','S', 'S'],
 			targetQuantity: '.glanceyear-quantity',
 			tagId: 'glanceyear-svgTag',
-			showToday: false
+			showToday: false,
+			today: new Date()
 		}, options );
 
 		var svgElement = createElementSvg('svg', {'width': 54*12+15, 'height': 7*12+15 } );
@@ -24,25 +25,29 @@
 
 		var dayCount = 366;
 		var monthCount;
-		var today = new Date();
 
 
 		//Weeks
 		for (var i=0; i<54; i++) {
 			var gElement = createElementSvg('g', {'transform': 'translate('+(12*i)+',0)'} );   
 			var firstDate = new Date();
-			firstDate.setDate(today.getDate() - dayCount-1);
+			firstDate.setMonth(settings.today.getMonth());
+			firstDate.setFullYear(settings.today.getFullYear());
+			firstDate.setDate(settings.today.getDate() - dayCount-1);
+
+			var daysLeft = daysInMonth(firstDate) - firstDate.getDate();
+
 			// Days in week
 			for (var j=firstDate.getDay(); j<7 ; j++) {
 
 				var rectDate = new Date();
-				rectDate.setDate(today.getDate() - dayCount);
-
-				if ( rectDate.getMonth() != monthCount && i < 52 && j > 3 ) {
+				rectDate.setMonth(settings.today.getMonth());
+				rectDate.setFullYear(settings.today.getFullYear());
+				rectDate.setDate(settings.today.getDate() - dayCount);
+				
+				if ( rectDate.getMonth() != monthCount && i < 52 && j > 3 && daysLeft > 7) {
 					//new Month
-					var offset = 12;
-					if (rectDate.getDate()> 7) offset = 0;
-					var textMonth = createElementSvg('text', {'x': 12*i+offset, 'y':'-6', 'class':'month'} );
+					var textMonth = createElementSvg('text', {'x': 12*i, 'y':'-6', 'class':'month'} );
 					textMonth.textContent = getNameMonth(rectDate.getMonth());
 					gElementContainer.appendChild(textMonth);
 					monthCount = rectDate.getMonth();
@@ -154,6 +159,9 @@
 		}
 		function getBeautyDate(a) {
 			return getNameMonth(a.getMonth()) + ' ' + a.getDate() + ', ' + a.getFullYear();
+		}
+		function daysInMonth(d) {
+			return 32 - new Date(d.getFullYear(), d.getMonth(), 32).getDate();
 		}
 	};
 })(jQuery);
