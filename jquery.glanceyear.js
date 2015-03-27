@@ -1,3 +1,9 @@
+/* 
+ * Glance Year, version 0.4.1
+ * https://github.com/Kraigo/glanceyear
+ * Author: Kraigo
+*/
+
 (function($) {
 	$.fn.glanceyear = function(massive, options) {
 

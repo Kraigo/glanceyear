@@ -9,6 +9,9 @@ JQuery data visualization / Glance Year
 
 ![alt tag](https://raw.github.com/kraigo/glanceyear/master/images/glanceyear.png)
 
+##### Version 0.4.1 (2014.03.27)
+- Added version tag in script file.
+
 ##### Version 0.4 (2014.11.26)
 - New parameter "today";
 - Fix bug with first month.
